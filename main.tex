@@ -1,0 +1,403 @@
+\documentclass[8pt]{ctexbeamer}
+
+\input{init.tex}
+
+\begin{document}
+
+\kaishu
+
+% 这里设置了两种封面，可以根据需要选择其中一种
+
+\begin{frame}[plain]
+
+    \centering
+    \vspace{13mm}
+    \titlecolorbox{简约风格汇报答辩模板}
+
+    \vspace{7mm}
+    \begin{tabular}{>{\color{themecolor}}r@{\hspace{3pt}}l}
+        学生 & 张三 \\
+        指导老师 & 李四 \\
+    \end{tabular}
+
+    \vspace{4mm} 
+    \today
+
+\end{frame}
+
+\begin{frame}[plain]
+
+    \setlength{\parskip}{0.2em}
+    \vspace{13mm}
+    {\color{themecolor}\huge
+    简约风格汇报答辩模板
+    }
+
+    \begin{tikzpicture}
+        \fill[black!50] (0,0) rectangle (0.98\textwidth, 0.5pt);
+        \fill[themecolor] (0,0) rectangle (0.98\textwidth/2, 0.5pt);
+    \end{tikzpicture}
+
+    \vspace{7mm}
+    \begin{tabular}{>{\color{themecolor}}r@{\hspace{3pt}}l}
+        学生 & 张三 \\
+        指导老师 & 李四 \\
+    \end{tabular}
+
+    \vspace{4mm} 
+    \today
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{目录}
+    \setlength{\parskip}{0.2em}
+    \tableofcontents
+\end{frame}
+
+\section{模板介绍}
+
+\makesection
+
+\subsection{模板介绍及文件结构}
+
+\begin{frame}{\insertsection}{\insertsubsection}
+
+    本模板基于\lstinline|ctexbeamer|，采用了清新简约的设计风格，适合用于学术汇报、答辩等场合。该模板的文件结构如下：
+
+    \begin{table}
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{ll}
+            \toprule
+            文件路径 & 说明 \\
+            \midrule
+            \lstinline|main.tex| & 主文件，包含了整个文档的结构和内容 \\
+            \lstinline|init.tex| & 初始化文件，用于导入\lstinline|init/|文件夹中用于初始化的内容 \\
+            \lstinline|reference.bib| & \lstinline|.bib|文件，用于放置bib格式的参考文献 \\
+            \lstinline|init/cmds.tex| & 用于定义可能用到的命令 \\
+            \lstinline|init/code.tex| & 用于定义不同风格的代码格式 \\
+            \lstinline|init/color.tex| & 用于定义可能用到的颜色 \\
+            \lstinline|init/format.tex| & 用于定义文档若干元素的格式，包括标题、副标题等 \\
+            \lstinline|init/pkg.tex| & 用于导入所需要的宏包 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+\end{frame}
+
+\section{准备工作}
+
+\makesection
+
+\subsection{模板使用准备工作}
+
+\begin{frame}{\insertsection}{\insertsubsection}
+    \begin{block}{模板使用准备工作}
+        如果您需要使用东南大学主题，可以跳过该部分，直接使用改模板。如果您需要使用其他学校或单位的主题，可以参考本节的内容进行修改。
+        \begin{enumerate}
+            \item 首先将您的学校和单位的logo放置在路径\lstinline|figs/logo.jpg|下。
+            \item 然后，修改\lstinline|init/color.tex|中的\lstinline|themecolor|为您的学校或单位的主题色，并将\lstinline|themered|修改为与主题色相搭配的强调色。
+            \item 这样，模板就设置好啦！
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+\section{模板使用}
+
+\makesection
+
+\subsection{小节和目录}
+
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+
+    \begin{block}{小节的使用}
+        \begin{enumerate}
+            \item 使用\lstinline|\section{}|和\lstinline|\subsection{}|命令可以生成小节和子小节。
+            \item 在小节后使用\lstinline|\makesection[width]|命令可以生成小节的封面，其中\lstinline|width|表示小节封面中横线的长度，默认值为0.4。
+            \begin{lstlisting}[style=latex]
+\section{直接使用}
+\subsection{小节和目录}
+\makesection
+            \end{lstlisting}
+
+        \end{enumerate}
+    \end{block}
+
+    \begin{block}{目录的使用}
+        \begin{enumerate}
+            \item 使用下面命令可以生成目录页。
+            \begin{lstlisting}[style=latex]
+\begin{frame}
+    \frametitle{目录}
+    \setlength{\parskip}{0.2em} % 设置段间距
+    \tableofcontents
+\end(*@@*){frame}
+            \end{lstlisting}
+        \end{enumerate}
+
+    \end{block}
+
+\end{frame}
+
+\subsection{页面和块}
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+    \begin{block}{页面的使用}
+        \begin{enumerate}
+            \item 使用下面命令可以生成一个页面，其中标题和副标题分别为小节的标题和子小节的标题。
+            \begin{lstlisting}[style=latex]
+\begin{frame}{\insertsection}{\insertsubsection}
+    % 页面内容
+\end(*@@*){frame}
+            \end{lstlisting}
+            \item 也可以使用\lstinline|\begin{frame}{title}{subtitle}|来自定义标题和副标题的内容，其中副标题可以省略。当标题和副标题都省略时，页面不会显示页眉。
+            \item 当然，也可以使用\lstinline|\begin{frame}[plain]|来生成一个无页眉页脚的页面，一般用于封面页和结尾页。
+            \item 使用\lstinline|\begin{frame}[fragile]{title}{subtitle}|，当该页面需要插入代码块时。
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+    \begin{block}{块的使用}
+        \begin{enumerate}
+            \item 使用下面命令可以生成一个块。
+            \begin{lstlisting}[style=latex]
+\begin{block}{title}
+    % 块内容
+\end(*@@*){block}
+            \end{lstlisting}
+            \item 在块的前后使用\lstinline|\colorlet{themecolor}{somecolor}|命令可以修改块的主题颜色。
+        \end{enumerate}
+    \end{block}
+
+    \colorlet{themecolor}{themered}
+    \begin{block}{红色的块}
+        \begin{enumerate}
+            \item 这是一个主题颜色为红色的块。
+            \item 下面是使用红色的块的代码。
+            \begin{lstlisting}[style=latex]
+\colorlet{themecolor}{themered}
+\begin{block}{title}
+    % 块内容
+\end(*@@*){block}
+\colorlet{themecolor}{themegreen}
+            \end{lstlisting}
+        \end{enumerate}
+    \end{block}
+    \colorlet{themecolor}{themegreen}
+
+\end{frame}
+
+\subsection{列表}
+
+\begin{frame}{\insertsection}{\insertsubsection}
+
+    \begin{block}{列表的使用}
+        \begin{enumerate}
+            \item 使用\lstinline|itemize|环境可以生成无序列表。
+            \item 使用\lstinline|enumerate|环境可以生成有序列表。
+        \end{enumerate}
+    \end{block}
+
+    \begin{block}{列表示例}
+
+        \begin{itemize}
+            \item 这是一个无序列表。
+            \item 这是一个无序列表。
+            \begin{itemize}
+                \item 这是一个无序列表的子列表。
+                \begin{itemize}
+                    \item 这是一个无序列表的子列表的子列表。
+                    \item 这是一个无序列表的子列表的子列表。
+                \end{itemize}
+                \item 这是一个无序列表的子列表。
+            \end{itemize}
+        \end{itemize}
+
+        \begin{enumerate}
+            \item 这是一个有序列表。
+            \item 这是一个有序列表。
+            \begin{enumerate}
+                \item 这是一个有序列表的子列表。
+                \begin{enumerate}
+                    \item 这是一个有序列表的子列表的子列表。
+                    \item 这是一个有序列表的子列表的子列表。
+                \end{enumerate}
+                \item 这是一个有序列表的子列表。
+            \end{enumerate}
+        \end{enumerate}
+
+
+    \end{block}
+
+\end{frame}
+
+\subsection{强调和注释}
+
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+
+    下面是一些强调和注释的使用方法\footnote{使用\lstinline|\footnote{}|可以插入脚注}。
+    \begin{table}
+        \renewcommand{\arraystretch}{1.5}
+        \setlength{\tabcolsep}{3mm}
+        \begin{tabular}{llll}
+            \toprule
+            命令 & 效果 & 命令 & 效果\\
+            \midrule
+            \lstinline|\textsf{}| & \textsf{无衬线} & \lstinline|\textbf{}| & \textbf{加粗} \\
+            \lstinline|\textrm{}| & \textrm{衬线} & \lstinline|\texttt{}| & \texttt{等宽} \\
+            \lstinline|\uline{}| & \uline{下划线} & \lstinline|\uwave{}| & \uwave{波浪线} \\
+            \lstinline|\sout{}| & \sout{删除线} & \lstinline|\emph{}| & \emph{强调} \\
+            \lstinline|\highlight{}| & \highlight{高亮} & \lstinline|\ulhighlight{}| & \ulhighlight{下划线高亮} \\
+            \lstinline|\stronghighlight{}| & \highlight{高亮} & \lstinline|\ulhighlight{}| & \ulstronghighlight{下划线强调高亮} \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    \begin{myquote}
+        这是一个引用，但是我习惯用它来表示注释。
+    \end{myquote}
+
+\end{frame}
+
+\subsection{图片和表格}
+
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+
+    \begin{block}{图片的使用}
+        \begin{enumerate}
+            \item 插入图片的命令如下。
+            \begin{lstlisting}[style=latex]
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{example.jpg}
+    \caption{图片示例}
+    \label{fig:example}
+\end(*@@*){figure}
+            \end{lstlisting}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.5\textwidth]{figs/example.jpg}
+                \caption{图片示例}
+                \label{fig:example}
+            \end{figure}
+        \end{enumerate}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+
+    \begin{block}{表格的使用}
+        \begin{enumerate}
+            \item 插入表格的命令如下。
+        \begin{lstlisting}[style=latex]
+\begin{table}
+    \centering
+    \caption{表格示例}\label{tab:example}
+    \begin{tabular}{cc}
+        \toprule
+        % 表头
+        \midrule
+        % 表格内容
+        \bottomrule
+    \end{tabular}
+\end(*@@*){table}
+        \end{lstlisting}
+
+        \begin{table}
+            \centering
+            \caption{表格示例}\label{tab:example}
+            \begin{tabular}{cccc}
+                \toprule
+                第一列 & 第二列 & 第三列 & 第四列 \\
+                \midrule
+                1 & 2 & 3 & 4 \\
+                5 & 6 & 7 & 8 \\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+\subsection{公式和代码块}
+
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+    \label{frame:eq_and_code}
+
+    \begin{block}{公式的使用}
+        插入公式的效果如下。
+        \begin{equation}
+            \label{eq:example}
+            i\hbar\frac{\partial \psi}{\partial t}
+= \frac{-\hbar^2}{2m} \left(
+\frac{\partial^2}{\partial x^2}
++ \frac{\partial^2}{\partial y^2}
++ \frac{\partial^2}{\partial z^2}
+\right) \psi + V \psi.
+        \end{equation}
+    \end{block}
+
+    \begin{block}{代码块的使用}
+        \begin{enumerate}
+            \item 使用\lstinline|\lstlisting{}|命令可以插入行内代码。
+            \item 插入行间代码的命令和效果如下。
+            \begin{lstlisting}[style=latex]
+\begin{lstlisting}[style=latex]
+% 代码块的内容
+\end(*@@*){lstlisting}
+            \end{lstlisting}
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+\subsection{参考文献和引用}
+
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+
+    \begin{block}{参考文献的使用}
+        \begin{enumerate}
+            \item 首先将参考文献的信息保存在\lstinline|reference.bib|文件中。
+            \item 使用\lstinline|\footfullcite{}|命令可以插入脚注引用。
+            \item 例如，Kopka等人写了一本关于\LaTeX{}的书\footfullcite{kopka2003guide}。
+        \end{enumerate}
+    \end{block}
+
+    \begin{block}{引用的使用}
+        \begin{enumerate}
+            \item 使用\lstinline|\ref{}|命令可以引用图片、表格和公式。
+            \item 使用\lstinline|\pageref{}|命令可以引用页面。
+            \item 例如，我可以引用第\pageref{frame:eq_and_code}页的公式(\ref{eq:example})。
+        \end{enumerate}
+    \end{block}
+
+\end{frame}
+
+\section{总结}
+
+\subsection{总结}
+
+\makesection
+
+\begin{frame}{\insertsection}{\insertsubsection}
+    \begin{block}{总结}
+        \begin{enumerate}
+            \item 我们提供了一个简单的\LaTeX{}模板。
+            \item 该模板包含了常用的功能，如插入图片、表格、公式和代码块等。
+            \item 没了！
+        \end{enumerate}
+    \end{block}
+
+    \begin{block}{致谢}
+        \begin{enumerate}
+            \item 感谢大家的支持！
+            \item 本模板参考了elegant sildes\footnote{https://www.overleaf.com/latex/templates/elegant-slides/yfqyhpprvdmg}模板。
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+\begin{frame}{参考文献}
+    \printbibliography
+\end{frame}
+
+\end{document}

@@ -1,0 +1,10 @@
+main-blx.bib
+*.aux
+*.log
+*.nav
+*.out
+*.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
