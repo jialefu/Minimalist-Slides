@@ -13,13 +13,13 @@
 
 - 以下为默认的东南大学主题样式：
 
-<img src="imgs/template1_1.jpg" width=49%>
-<img src="imgs/template1_2.jpg" width=49%>
+<img src="imgs/template1_1.jpg" width=45%>
+<img src="imgs/template1_2.jpg" width=45%>
 
 - 通过修改logo和主题颜色，可创建符合百度风格的模板：
 
-<img src="imgs/template2_1.jpg" width=49%>
-<img src="imgs/template2_2.jpg" width=49%>
+<img src="imgs/template2_1.jpg" width=45%>
+<img src="imgs/template2_2.jpg" width=45%>
 
 ## 使用方法和更多细节
 
