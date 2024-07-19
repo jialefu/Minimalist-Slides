@@ -25,3 +25,13 @@
 \newcommand{\ulhighlight}[1]{\textcolor{themecolor}{\color{themecolor}\uline{#1}}}
 \newcommand{\stronghighlight}[1]{\textcolor{stronghighlightcolor}{#1}}
 \newcommand{\ulstronghighlight}[1]{\textcolor{stronghighlightcolor}{\color{stronghighlightcolor}\uline{#1}}}
+
+\newtcolorbox{callout}[2][]{colback=white, colframe=themecolor, 
+  fonttitle=\bfseries, title={\color{themecolor}\faLightbulb[regular]\ #2},
+  coltitle=black, colbacktitle=white, #1,
+  boxrule=0.5pt, % Thickness of the border
+  arc=2pt, % Radius of the corners
+  left=2pt, right=2pt, top=1pt, bottom=2pt, % Padding
+  boxsep=2pt, % Separation between border and content
+  titlerule=-1mm, % Remove the line below the title
+}
